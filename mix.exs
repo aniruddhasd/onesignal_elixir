@@ -17,9 +17,7 @@ defmodule OnesignalElixir.MixProject do
 
   defp description do
     """
-      This project is a wrapper for using the awesome Onesignal APIs.
-      Currently supports the following Onesignal APIs
-      Create Notification
+      This project is a wrapper for using the awesome Onesignal APIs. Currently supports Onesignal's Create Notification API.
     """
   end
 
