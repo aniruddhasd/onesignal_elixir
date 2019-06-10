@@ -4,10 +4,14 @@ defmodule OnesignalElixir.MixProject do
   def project do
     [
       app: :onesignal_elixir,
-      version: "0.1.4",
+      version: "0.1.5",
       elixir: "~> 1.6",
       start_permanent: Mix.env() == :prod,
-      deps: deps()
+      deps: deps(),
+      description: description(),
+      package: package(),
+      name: "Onesignal Elixir",
+      source_url: "https://github.com/aniruddhasd/onesignal_elixir"
     ]
   end
 
@@ -24,7 +28,8 @@ defmodule OnesignalElixir.MixProject do
     files: ["lib", "mix.exs", "README.md"],
     maintainers: ["Aniruddha Deshpande"],
     licenses: ["Apache 2.0"],
-    links: %{"GitHub" => "https://github.com/aniruddhasd/onesignal_elixir"}
+    links: %{"GitHub" => "https://github.com/aniruddhasd/onesignal_elixir",
+            "Docs" => "https://hexdocs.pm/onesignal_elixir"}
     ]
   end
 
