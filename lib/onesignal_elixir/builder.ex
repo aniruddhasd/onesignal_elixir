@@ -2,7 +2,7 @@ defmodule OnesignalElixir.Builder do
     require Logger
     alias OnesignalElixir.Util
     @doc """
-        Notification.new()
+        OnesignalElixir.new()
         |> Builder.include_segment("Active Users")
 
         %{included_segments: ["Active Users"]}
@@ -14,7 +14,7 @@ defmodule OnesignalElixir.Builder do
     end
 
     @doc """
-        Notification.new()
+        OnesignalElixir.new()
         |> Builder.include_segments(["Active Users", "Paid Users"])
 
         %{included_segments: ["Active Users"]}
@@ -26,7 +26,7 @@ defmodule OnesignalElixir.Builder do
     end
 
     @doc """
-        Notification.new()
+        OnesignalElixir.new()
         |> Builder.exclude_segment("Active Users")
 
         %{excluded_segments: ["Active Users"]}
@@ -38,7 +38,7 @@ defmodule OnesignalElixir.Builder do
     end
 
     @doc """
-        Notification.new()
+        OnesignalElixir.new()
         |> Builder.exclude_segments(["Active Users", "Paid Users"])
 
         %{excluded_segments: ["Active Users", "Paid Users"]}
@@ -50,7 +50,7 @@ defmodule OnesignalElixir.Builder do
     end
 
     @doc """
-        Notification.new()
+        OnesignalElixir.new()
         |> Builder.add_content(:en, "Welcome to One Signal")
         |> Builder.add_content(:es, "Bienvenido a One Signal")
 
@@ -63,7 +63,7 @@ defmodule OnesignalElixir.Builder do
     end
 
     @doc """
-        Notification.new()
+        OnesignalElixir.new()
         |> Builder.add_heading(:en, "Hello")
         |> Builder.add_heading(:es, "Hola")
 
@@ -76,7 +76,7 @@ defmodule OnesignalElixir.Builder do
     end
 
     @doc """
-        Notification.new()
+        OnesignalElixir.new()
         |> Builder.add_subtitle(:en, "Welcome")
         |> Builder.add_subtitle(:es, "Bienvenido")
 
@@ -89,7 +89,7 @@ defmodule OnesignalElixir.Builder do
     end
 
     @doc """
-        Notification.new()
+        OnesignalElixir.new()
         |> Builder.add_filters(filters)
 
         %{filters: [
@@ -107,7 +107,7 @@ defmodule OnesignalElixir.Builder do
     end
 
     @doc """
-        Notification.new()
+        OnesignalElixir.new()
         |> Builder.add_url("https://xcelerator.ninja")
 
         %{url: "https://xcelerator.ninja"}
@@ -117,7 +117,7 @@ defmodule OnesignalElixir.Builder do
     end
 
     @doc """
-        Notification.new()
+        OnesignalElixir.new()
         |> Builder.add_app_url("https://xcelerator.ninja")
 
         %{app_url: "https://xcelerator.ninja"}
@@ -127,7 +127,7 @@ defmodule OnesignalElixir.Builder do
     end
 
     @doc """
-        Notification.new()
+        OnesignalElixir.new()
         |> Builder.big_picture("https://xcelerator.ninja/static/media/main-logo.ff98436a.png")
 
         %{big_picture: "https://xcelerator.ninja/static/media/main-logo.ff98436a.png"}
@@ -138,7 +138,7 @@ defmodule OnesignalElixir.Builder do
 
 
     @doc """
-        Notification.new()
+        OnesignalElixir.new()
         |> Builder.buttons([{"Share","ic_menu_share"},{"Send","ic_menu_send"}])
 
         %{buttons:  [
@@ -155,7 +155,7 @@ defmodule OnesignalElixir.Builder do
 
     @doc """
         10 being highest priority
-        Notification.new()
+        OnesignalElixir.new()
         |> Builder.set_priority(10)
 
         %{priority: 10}
@@ -167,7 +167,7 @@ defmodule OnesignalElixir.Builder do
     @doc """
         The default is 259,200 seconds (3 days).
         Max value to set is 2419200 seconds (28 days).
-        Notification.new()
+        OnesignalElixir.new()
         |> Builder.set_ttl(86400)
 
         %{ttl: 86400}
@@ -179,7 +179,7 @@ defmodule OnesignalElixir.Builder do
     @doc """
         "2015-09-24 14:00:00 GMT-0700"
         Max value to set is 2419200 seconds (28 days).
-        Notification.new()
+        OnesignalElixir.new()
         |> Builder.set_send_after("2015-09-24 14:00:00 GMT-0700")
 
         %{send_after: "2015-09-24 14:00:00 GMT-0700"}
@@ -189,7 +189,7 @@ defmodule OnesignalElixir.Builder do
     end
 
     @doc """
-        Notification.new()
+        OnesignalElixir.new()
         |> Builder.set_grouping("campaign_123")
 
         %{android_group: "campaign_123"}
@@ -199,7 +199,7 @@ defmodule OnesignalElixir.Builder do
     end
 
     @doc """
-        Notification.new()
+        OnesignalElixir.new()
         |> Builder.add_data(%{entity: "user", id: 23})
 
         %{data: %{entity: "user", id: 23}}
@@ -213,7 +213,7 @@ defmodule OnesignalElixir.Builder do
     end
 
     @doc """
-        Notification.new()
+        OnesignalElixir.new()
         |> Builder.include_external_user_ids(["user-id-1", "user-id-2"])
 
         %{include_external_user_ids: ["user-id-1"]}
@@ -226,7 +226,7 @@ defmodule OnesignalElixir.Builder do
     end
 
     @doc """
-        Notification.new()
+        OnesignalElixir.new()
         |> Builder.include_player_ids(["player-id-1", "player-id-2"])
 
         %{include_player_ids: ["player-id-1"]}
