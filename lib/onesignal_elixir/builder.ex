@@ -1,10 +1,10 @@
 defmodule OnesignalElixir.Builder do
-    require Logger    
+    require Logger
     alias OnesignalElixir.Util
     @doc """
         Notification.new()
         |> Builder.include_segment("Active Users")
-        
+
         %{included_segments: ["Active Users"]}
     """
     def include_segment(notification,segment_name) do
@@ -16,7 +16,7 @@ defmodule OnesignalElixir.Builder do
     @doc """
         Notification.new()
         |> Builder.include_segments(["Active Users", "Paid Users"])
-        
+
         %{included_segments: ["Active Users"]}
     """
     def include_segments(notification,segments) do
@@ -28,7 +28,7 @@ defmodule OnesignalElixir.Builder do
     @doc """
         Notification.new()
         |> Builder.exclude_segment("Active Users")
-        
+
         %{excluded_segments: ["Active Users"]}
     """
     def exclude_segment(notification,segment_name) do
@@ -40,14 +40,14 @@ defmodule OnesignalElixir.Builder do
     @doc """
         Notification.new()
         |> Builder.exclude_segments(["Active Users", "Paid Users"])
-        
+
         %{excluded_segments: ["Active Users", "Paid Users"]}
     """
     def exclude_segments(notification,segments) do
         Map.get_and_update(notification,:excluded_segments, fn current_value ->
             {current_value,Enum.concat(Util.prepare_param_enum(current_value),segments)}
         end) |> elem(1)
-    end  
+    end
 
     @doc """
         Notification.new()
@@ -86,7 +86,7 @@ defmodule OnesignalElixir.Builder do
         Map.get_and_update(notification,:subtitles, fn current_value ->
             {current_value, Map.put_new(Util.prepare_param_map(current_value),language,subtitle)}
         end) |> elem(1)
-    end    
+    end
 
     @doc """
         Notification.new()
@@ -135,7 +135,7 @@ defmodule OnesignalElixir.Builder do
     def big_picture(notification, big_picture) do
         Map.put(notification, :big_picture, big_picture)
     end
-    
+
 
     @doc """
         Notification.new()
@@ -152,7 +152,7 @@ defmodule OnesignalElixir.Builder do
         end) |> elem(0)
         Map.put(notification, :buttons, buttons)
     end
-  
+
     @doc """
         10 being highest priority
         Notification.new()
@@ -188,7 +188,7 @@ defmodule OnesignalElixir.Builder do
         Map.put(notification, :send_after, send_after)
     end
 
-    @doc """        
+    @doc """
         Notification.new()
         |> Builder.set_grouping("campaign_123")
 
@@ -198,7 +198,7 @@ defmodule OnesignalElixir.Builder do
         Map.put(notification, :android_group, group)
     end
 
-    @doc """        
+    @doc """
         Notification.new()
         |> Builder.add_data(%{entity: "user", id: 23})
 
@@ -210,5 +210,31 @@ defmodule OnesignalElixir.Builder do
         else
             notification
         end
+    end
+
+    @doc """
+        Notification.new()
+        |> Builder.include_external_user_ids(["user-id-1", "user-id-2"])
+
+        %{include_external_user_ids: ["user-id-1"]}
+    """
+    def include_external_user_ids(notification,user_ids) do
+        Map.get_and_update(notification,:include_external_user_ids, fn current_value ->
+            {current_value,Enum.concat(Util.prepare_param_enum(current_value),user_ids)}
+        end)
+        |> elem(1)
+    end
+
+    @doc """
+        Notification.new()
+        |> Builder.include_player_ids(["player-id-1", "player-id-2"])
+
+        %{include_player_ids: ["player-id-1"]}
+    """
+    def include_player_ids(notification,player_ids) do
+        Map.get_and_update(notification,:include_player_ids, fn current_value ->
+            {current_value,Enum.concat(Util.prepare_param_enum(current_value),player_ids)}
+        end)
+        |> elem(1)
     end
 end
