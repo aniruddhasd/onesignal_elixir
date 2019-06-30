@@ -69,6 +69,40 @@ iex(6)> OnesignalElixir.send_notification(body)
   "id" => "GENERATED_NOTIFICATION_ID",
   "recipients" => 5
 }}
+
+iex(2)> body = OnesignalElixir.new() |> Builder.include_player_ids(["6e1a1b95-47e9-4978-b2f2-e2e42207e7b5"]) |> Builder.add_heading(:en, "Hello") |> Builder.add_content(:en, "This is the text content")
+%{
+  __struct__: OnesignalElixir.Notification,
+  app_id: "a9ec9a20-d595-47b6-8efa-be94ecd4abaa",
+  contents: %{en: "This is the text content"},
+  headings: %{en: "Hello"},
+  include_player_ids: ["6e1a1b95-47e9-4978-b2f2-e2e42207e7b5"]
+}
+
+iex(3)> OnesignalElixir.send_notification(body)                                     
+{:ok,
+ %{
+   "external_id" => nil,
+   "id" => "f796da55-2d8b-4abf-afa5-86c98c9f185b",
+   "recipients" => 1
+ }}
+ 
+iex(4)> body = OnesignalElixir.new() |> Builder.include_external_user_ids(["xxxxx@example.com"]) |> Builder.add_heading(:en, "Hello") |> Builder.add_content(:en, "This is the text content")
+%{
+  __struct__: OnesignalElixir.Notification,
+  app_id: "a9ec9a20-d595-47b6-8efa-be94ecd4abaa",
+  contents: %{en: "This is the text content"},
+  headings: %{en: "Hello"},
+  include_external_user_ids: ["xxxxx@example.com"]
+}
+
+iex(5)> OnesignalElixir.send_notification(body)
+{:ok,
+ %{
+   "external_id" => nil,
+   "id" => "0c49f257-d955-428a-849c-7d9768b210cf",
+   "recipients" => 1
+ }}
 ```
 Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
 and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
