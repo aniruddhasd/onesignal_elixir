@@ -130,11 +130,8 @@ defmodule OnesignalElixir.Filter do
     combine_filters(current_filters, filter)
   end
 
-  @doc """
-      operator("OR")
-
-      %{operator: "OR"}
-  """
+  # operator("OR")
+  # %{operator: "OR"}
   defp operator(operator) do
     %{operator: operator}
   end
@@ -157,16 +154,12 @@ defmodule OnesignalElixir.Filter do
     end
   end
 
-  @doc """
-      If existing filter is empty, then just takes new filter, creates a list
-  """
+  # If existing filter is empty, then just takes new filter, creates a list
   defp combine_filters(_current_filters = [], filter) do
     [filter]
   end
 
-  @doc """
-      Takes existing filter and appends new filter to the list
-  """
+  # Takes existing filter and appends new filter to the list
   defp combine_filters(current_filters = [_ | _], filter) do
     current_filters ++ [filter]
   end
