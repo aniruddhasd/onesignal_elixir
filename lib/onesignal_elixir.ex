@@ -31,10 +31,10 @@ defmodule OnesignalElixir do
         %{operator: "AND"},
         %{field: "tag", key: "email", relation: "exists"}
       ],
-      headings: %{en: "Hello", es: "Hola"}, 
+      headings: %{en: "Hello", es: "Hola"},
       subtitles: %{en: "Welcome", es: "Bienvenido"}
     }
-    iex(4)> OnesignalElixir.send_notification(body)                                                                                              {:ok,                                                                                                                                          %{                                             
+    iex(4)> OnesignalElixir.send_notification(body)                                                                                              {:ok,                                                                                                                                          %{
       "external_id" => nil,
       "id" => "GENERATED_NOTIFICATION_ID",
       "recipients" => 6
@@ -61,7 +61,7 @@ defmodule OnesignalElixir do
   """
   alias OnesignalElixir.{Notification,API}
 
-    @doc """        
+    @doc """
         Create new Notification structure
     """
     def new() do
@@ -71,15 +71,15 @@ defmodule OnesignalElixir do
         }
     end
 
-    @doc """        
+    @doc """
         Send notification
         Accept notification data in the body part.
         Attach default header based on onesignal config
         Make a POST call
     """
-    def send_notification(body) do    
+    def send_notification(body) do
         headers = Notification.build_header()
-        url = Notification.build_url()        
+        url = Notification.build_url()
         API.post(url, body, headers)
     end
 end
