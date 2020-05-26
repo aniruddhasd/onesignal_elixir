@@ -46,5 +46,5 @@ defmodule OnesignalElixir.MixProject do
       {:poison, "~> 3.1"}
     ]
   end
-  
+
 end
