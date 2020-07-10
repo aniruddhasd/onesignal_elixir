@@ -43,7 +43,7 @@ defmodule OnesignalElixir.MixProject do
     [
       {:ex_doc, "~> 0.18.0", only: :dev, runtime: false},
       {:httpoison, "~> 1.4"},
-      {:poison, "~> 3.1"}
+      {:poison, "~> 4.0"}
     ]
   end
 
