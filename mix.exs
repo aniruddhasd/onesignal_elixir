@@ -4,7 +4,7 @@ defmodule OnesignalElixir.MixProject do
   def project do
     [
       app: :onesignal_elixir,
-      version: "0.1.7",
+      version: "0.2.0",
       elixir: "~> 1.6",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
@@ -23,11 +23,13 @@ defmodule OnesignalElixir.MixProject do
 
   defp package do
     [
-    files: ["lib", "mix.exs", "README.md"],
-    maintainers: ["Aniruddha Deshpande"],
-    licenses: ["Apache 2.0"],
-    links: %{"GitHub" => "https://github.com/aniruddhasd/onesignal_elixir",
-            "Docs" => "https://hexdocs.pm/onesignal_elixir"}
+      files: ["lib", "mix.exs", "README.md"],
+      maintainers: ["Aniruddha Deshpande"],
+      licenses: ["Apache 2.0"],
+      links: %{
+        "GitHub" => "https://github.com/aniruddhasd/onesignal_elixir",
+        "Docs" => "https://hexdocs.pm/onesignal_elixir"
+      }
     ]
   end
 
@@ -46,5 +48,4 @@ defmodule OnesignalElixir.MixProject do
       {:poison, "~> 4.0"}
     ]
   end
-
 end
